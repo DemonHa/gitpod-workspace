@@ -1,0 +1,35 @@
+table:
+  schema: public
+  name: messages
+object_relationships:
+  - name: room
+    using:
+      foreign_key_constraint_on: room_id
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      set:
+        user_id: x-hasura-user-id
+      columns:
+        - id
+        - message
+        - room_id
+      backend_only: false
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - created_at
+        - message
+      filter: {}
+delete_permissions:
+  - role: user
+    permission:
+      filter:
+        room:
+          id:
+            _eq: x-hasura-user-id

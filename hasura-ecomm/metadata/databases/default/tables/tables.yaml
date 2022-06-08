@@ -1,1 +1,4 @@
-[]
+- "!include public_message_live.yaml"
+- "!include public_messages.yaml"
+- "!include public_rooms.yaml"
+- "!include public_users.yaml"
