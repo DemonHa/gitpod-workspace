@@ -13,6 +13,11 @@ $ make install
 $ make init
 ```
 
+Start the container
+```
+$ make start
+```
+
 To add a new migration run the following
 ```
 $ make migrate-create name=[name_of_table]
